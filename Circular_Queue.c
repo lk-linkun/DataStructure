@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-typedef int data_t;
-
-typedef struct QueueInfo
-{
-    data_t *head;   //队内堆内存的首地址
-    int front;  //队首下标
-    int rear;   //队尾下标
-    int maxnum; //循环队列的容量
-}manege;
+#include "Circular_Queue.h"
 
 //创建空队列
 manege *CircularQueue_Create(int size)
@@ -87,21 +78,4 @@ void show(manege *Pmanege)
         cur=(cur+1)%Pmanege->maxnum;
     }
     printf("\n");
-}
-
-int main()
-{
-    manege *Pmanege=CircularQueue_Create(8);
-    CircularQueue_Enqueue(Pmanege,10);
-    CircularQueue_Enqueue(Pmanege,20);
-    CircularQueue_Enqueue(Pmanege,30);
-    CircularQueue_Enqueue(Pmanege,40);
-    CircularQueue_Enqueue(Pmanege,60);
-    CircularQueue_Enqueue(Pmanege,70);
-    CircularQueue_Enqueue(Pmanege,80);
-    show(Pmanege);
-    CircularQueue_Dequeue(Pmanege);
-    show(Pmanege);
-    CircularQueue_Dequeue(Pmanege);
-    show(Pmanege);
 }

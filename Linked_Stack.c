@@ -1,19 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef int data_t;
-
-typedef struct node
-{
-    data_t data;    //数据
-    struct node *next;  //指向下一个地址
-}node;
-
-typedef struct manege
-{
-    int num;    //记录有多少个节点
-    node *top;  //栈顶地址
-}manege;
+#include "Linked_Stack.h"
 
 //管理节点的初始化
 manege *LinkedStack_Create()
@@ -100,18 +87,3 @@ void show(manege *Pmanege)
     printf("\n");
 }
 
-int main()
-{
-    data_t temp;
-    manege *Pmanege=LinkedStack_Create();
-    LinkedStack_Push(Pmanege,10);
-    LinkedStack_Push(Pmanege,20);
-    LinkedStack_Push(Pmanege,30);
-    LinkedStack_Push(Pmanege,40);
-    LinkedStack_Push(Pmanege,50);
-    LinkedStack_Push(Pmanege,60);
-    LinkedStack_Push(Pmanege,70);
-    show(Pmanege);
-    temp=LinkedList_Pop(Pmanege);
-    show(Pmanege);
-}

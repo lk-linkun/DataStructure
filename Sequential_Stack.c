@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef int data_t;
-
-typedef struct Sequence_Stack
-{
-    data_t *bottom; //记录顺序栈的栈底地址
-    int top;    //栈顶
-    int size;   //顺序表的容量
-}SStack;
+#include "Sequential_Stack.h"
 
 //创建空的顺序栈
 SStack *SequenceStack_Create(int size)
@@ -75,22 +67,4 @@ void show(SStack *Pmanege)
         printf("%d ",Pmanege->bottom[i]);
     }
     printf("\n");
-}
-
-int main()
-{
-    SStack *Pmanege=SequenceStack_Create(10);
-    data_t old;
-    SequenceStack_push(Pmanege,10);
-    SequenceStack_push(Pmanege,20);
-    SequenceStack_push(Pmanege,30);
-    SequenceStack_push(Pmanege,40);
-    SequenceStack_push(Pmanege,50);
-    show(Pmanege);
-    old=SequenceStack_pop(Pmanege);
-    show(Pmanege);
-    printf("%d\n",old);
-    old=SequenceStack_pop(Pmanege);
-    show(Pmanege);
-    printf("%d\n",old);
 }
